@@ -1,0 +1,263 @@
+-- 南烛游戏助手 - Roblox脚本助手
+local NanzhuHelper = {}
+
+-- 初始化UI
+function NanzhuHelper:InitUI()
+    -- 创建主界面
+    self.ScreenGui = Instance.new("ScreenGui")
+    self.ScreenGui.Name = "NanzhuHelper"
+    self.ScreenGui.Parent = game:GetService("CoreGui")
+    
+    -- 主框架
+    self.MainFrame = Instance.new("Frame")
+    self.MainFrame.Name = "MainFrame"
+    self.MainFrame.Size = UDim2.new(0, 400, 0, 500)
+    self.MainFrame.Position = UDim2.new(0.5, -200, 0.5, -250)
+    self.MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+    self.MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+    self.MainFrame.BorderSizePixel = 0
+    self.MainFrame.Parent = self.ScreenGui
+    
+    -- 标题
+    local title = Instance.new("TextLabel")
+    title.Name = "Title"
+    title.Text = "南烛游戏助手"
+    title.Size = UDim2.new(1, 0, 0, 50)
+    title.Position = UDim2.new(0, 0, 0, 0)
+    title.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
+    title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    title.Font = Enum.Font.GothamBold
+infJumpButton.Parent = container
+local infJumpActive = false
+    
+infJumpActive = not infJumpActive
+如果不活跃
+infJumpButton.BackgroundColor3 = Color3.fromRGB(80, 120, 80)
+self:ShowNotification（“无限跳跃已激活!”）
+local player = game:GetService("Players").LocalPlayer
+本地字符=播放器
+local humanoid = character:WaitForChild("Humanoid")
+如果不活跃
+结束
+其他的
+infJumpButton.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
+self:ShowNotification（[无限跳跃已关闭]）
+    
+结束
+    wait(2)
+-- 传送功能
+    wait(1)
+    loading:Destroy()
+    
+    -- 创建功能界面
+    self:CreateMainMenu()
+end
+
+-- 创建主菜单
+function NanzhuHelper:CreateMainMenu()
+    -- 分类按钮容器
+    local buttonContainer = Instance.new("ScrollingFrame")
+    buttonContainer.Name = "ButtonContainer"
+    buttonContainer.Size = UDim2.new(1, -40, 1, -100)
+    buttonContainer.Position = UDim2.new(0, 20, 0, 80)
+    buttonContainer.BackgroundTransparency = 1
+    buttonContainer.ScrollBarThickness = 5
+    buttonContainer.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 120)
+    buttonContainer.Parent = self.MainFrame
+    
+    -- 通用分类
+    local category = Instance.new("TextButton")
+    category.Name = "Universal"
+    category.Text = "通用功能"
+    category.Size = UDim2.new(1, 0, 0, 40)
+    category.Position = UDim2.new(0, 0, 0, 0)
+    category.BackgroundColor3 = Color3.fromRGB(50, 50, 70)
+    category.TextColor3 = Color3.fromRGB(255, 255, 255)
+    category.Font = Enum.Font.GothamBold
+    category.TextSize = 18
+    category.Parent = buttonContainer
+    
+    category.MouseButton1Click:Connect(function()
+        buttonContainer:ClearAllChildren()
+        self:CreateUniversalMenu(buttonContainer)
+    end)
+end
+
+-- 创建通用功能菜单
+function NanzhuHelper:CreateUniversalMenu(container)
+    -- 返回按钮
+    local backButton = Instance.new("TextButton")
+    backButton.Name = "Back"
+    backButton.Text = "← 返回"
+    backButton.Size = UDim2.new(0, 80, 0, 30)
+    backButton.Position = UDim2.new(0, 0, 0, 0)
+    backButton.BackgroundColor3 = Color3.fromRGB(70, 70, 90)
+    backButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    backButton.Font = Enum.Font.Gotham
+    backButton.TextSize = 14
+    backButton.Parent = container
+    
+    backButton.MouseButton1Click:Connect(function()
+        container:ClearAllChildren()
+        self:CreateMainMenu()
+    end)
+    
+    -- 无敌飞行功能
+    local flyButton = Instance.new("TextButton")
+    flyButton.Name = "Fly"
+    flyButton.Text = "无敌飞行"
+    flyButton.Size = UDim2.new(1, 0, 0, 40)
+    flyButton.Position = UDim2.new(0, 0, 0, 40)
+    flyButton.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
+    flyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    flyButton.Font = Enum.Font.GothamBold
+    flyButton.TextSize = 16
+    flyButton.Parent = container
+    
+    flyButton.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Invinicible-Flight-R15-45414"))()
+        self:ShowNotification("无敌飞行功能已激活！")
+    end)
+    
+    -- 穿墙功能
+    local noclipButton = Instance.new("TextButton")
+    noclipButton.Name = "Noclip"
+    noclipButton.Text = "穿墙模式"
+    noclipButton.Size = UDim2.new(1, 0, 0, 40)
+    noclipButton.Position = UDim2.new(0, 0, 0, 90)
+    noclipButton.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
+    noclipButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    noclipButton.Font = Enum.Font.GothamBold
+    noclipButton.TextSize = 16
+    noclipButton.Parent = container
+    
+    local noclipActive = false
+    noclipButton.MouseButton1Click:Connect(function()
+        noclipActive = not noclipActive
+        if noclipActive then
+            noclipButton.BackgroundColor3 = Color3.fromRGB(80, 120, 80)
+            self:ShowNotification("穿墙模式已激活！")
+        else
+            noclipButton.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
+            self:ShowNotification("穿墙模式已关闭")
+        end
+        
+        local character = game.Players.LocalPlayer.Character
+        if character then
+            local humanoid = character:FindFirstChildOfClass("Humanoid")
+            if humanoid then
+                while noclipActive do
+                    wait(0.1)
+                    if character then
+                        for _, part in pairs(character:GetDescendants()) do
+                            if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
+                                part.CanCollide = false
+                            end
+                        end
+                    else
+                        break
+                    end
+                end
+                
+                -- 恢复碰撞
+                if character then
+                    for _, part in pairs(character:GetDescendants()) do
+                        if part:IsA("BasePart") then
+                            part.CanCollide = true
+                        end
+                    end
+                end
+            end
+        end
+    end)
+    
+    -- 无限跳功能
+local infJumpButton = Instance.new("TextButton")
+infJumpButton.Name = "InfJump"
+Text=“无限跳跃”
+infJumpButton.Size = UDim2.new(1, 0, 0, 40)
+infJumpButton.Position = UDim2.new(0, 0, 0, 140)
+infJumpButton.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
+infJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+infJumpButton.Font = Enum.Font.GothamBold
+infJumpButton.TextSize = 16
+infJumpButton.Parent = container
+    
+local infJumpActive = false
+    infJumpButton.MouseButton1Click:Connect(function()
+infJumpActive = not infJumpActive
+如果不活跃
+infJumpButton.BackgroundColor3 = Color3.fromRGB(80, 120, 80)
+self:ShowNotification(“无限跳跃已激活!”)
+            
+local player = game:GetService("Players").LocalPlayer
+本地字符=播放器
+local humanoid = character:WaitForChild("Humanoid")
+            
+            game:GetService("UserInputService").JumpRequest:Connect(function()
+如果不活跃
+                    humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+结束
+            end)
+其他的
+infJumpButton.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
+self:ShowNotification（[无限跳跃已关闭]）
+结束
+    end)
+    
+-- 传送功能
+local teleportButton = Instance.new("TextButton")
+teleportButton.Name = "Teleport"
+Text=“传送功能”
+teleportButton.Size = UDim2.new(1, 0, 0, 40)
+teleportButton.Position = UDim2.new(0, 0, 0, 190)
+teleportButton.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
+teleportButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+teleportButton.Font = Enum.Font.GothamBold
+teleportButton.TextSize = 16
+teleportButton.Parent = container
+    
+本地传送位置=nil
+    teleportButton.MouseButton1Click:Connect(function()
+local character = game.Players.LocalPlayer.Character
+如果性格那么
+local rootPart = character:FindFirstChild("HumanoidRootPart")
+如果
+如果不是瞬移
+-- 第一次点击，设置传送点
+teleportPosition = rootPart.Position
+Text=“传送至保存点”
+self:ShowNotification(“传送点已设置!”)
+其他的
+-- 第二次点击，传送到保存点
+rootPart.CFrame = CFrame.new(teleportPosition)
+如果
+如果不是瞬移
+-- 第一次点击，设置传送点
+teleportPosition = rootPart.Position
+Text=“传送至保存点”
+self:ShowNotification（“传送点已设置!”）
+    end)
+其他的
+
+-- 第二次点击，传送到保存点
+如果
+如果不是瞬移
+-- 第一次点击，设置传送点
+teleportPosition = rootPart.Position
+Text=“传送至保存点”
+self:ShowNotification（“传送点已设置!”）
+其他的
+-- 第二次点击，传送到保存点
+rootPart.CFrame = CFrame.new(teleportPosition)
+teleportPosition = nil
+Text=“传送功能”
+    
+    spawn(function()
+        wait(3)
+        notif:Destroy()
+    end)
+self:ShowNotification（“已传送到保存点!”）
+
+结束
+NanzhuHelper:InitUI()
